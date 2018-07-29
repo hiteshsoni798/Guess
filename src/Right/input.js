@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import { value } from '../redux/actionCreaters';
+
 
 const regex= /^\s*([0-9]{0,4})$/;
 class Input extends Component {
@@ -28,6 +31,7 @@ class Input extends Component {
 	onkeypress = (e) => {
 		if(e.key==='Enter'){
 			this.action();
+
 		}
 	}
 
@@ -35,6 +39,7 @@ class Input extends Component {
 		if(this.state.error==='' && this.state.value.length===4) {
 			this.props.handle_password(this.state.value);
 			this.setState({value : ""});
+			this.props.setValue(this.state.value);
 		} else if (this.state.error==='') {
 			this.setState({error:'password should be 4 digits'});
 		}
@@ -66,4 +71,11 @@ class Input extends Component {
 	}
 }
 
-export default Input
+const mapStateToProps = state => ({value1: state.value});
+const mapDispatchToProps = (dispatch) => ({
+	setValue(val) {
+		dispatch(value(val));
+	}
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Input)

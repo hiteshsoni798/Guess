@@ -25,13 +25,8 @@ class App extends Component {
     console.log(this.state.password);
   }
 
-  ComponentWillMount() {
-        console.log('777');
-  }
-
   fail = () => {
     this.setState({state:'fail'});
-    console.log("hello");
   }
 
   createPassword =()=> {
@@ -52,7 +47,6 @@ class App extends Component {
     a.push(val);
     b.push(this.position_match(val));
     c.push(this.charrecter_match(val));
-  //  console.log(a);
       this.setState({
         tried:a,
         pos_match:b,
@@ -129,4 +123,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 const mapStateToProps = state => ({value1: state.password});
 
-export default  connect(mapDispatchToProps, mapStateToProps)(App);
+export default  connect(mapStateToProps, mapDispatchToProps)(App);

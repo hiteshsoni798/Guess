@@ -1,11 +1,9 @@
 import {VALUE,STATE,PASSWORD} from './actions';
 
-export function value (value) {
-  return {
+export const value = (value) => ({
     type : VALUE,
     payload : value
-  }
-}
+  })
 
 export const state = (state) => ({
   type : STATE,

@@ -10,7 +10,7 @@ const DEFAULT_STATE = {
   state:'CONTINUE'
 };
 
-const setValue =  (state, action) => (Object.assign({},state, {value : action.payload}))
+const setValue =  (state, action) => (Object.assign({}, state, {value : action.payload}))
 const setPassword = (state, action) => (Object.assign({}, state, {password : action.payload}))
 const setState = (state, action) => (Object.assign({}, state, {state : action.payload}))
 
@@ -20,7 +20,7 @@ const rootReducers = (state = DEFAULT_STATE, action ) => {
       return setValue(state, action);
     case PASSWORD :
       return setPassword(state, action);
-    case 'STATE':
+    case STATE:
       return setState(state, action);
     default:
       return state;
